@@ -21,4 +21,4 @@ marker_cluster = MarkerCluster().add_to(my_map)
 for item in random_sample:
     folium.Marker(item, popup='Marker Label').add_to(marker_cluster)
 
-my_map.save("crime_map.html")
+my_map.save("templates/crime_map.html")
