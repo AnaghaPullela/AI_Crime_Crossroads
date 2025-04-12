@@ -27,6 +27,28 @@ for item in random_sample:
 
 Geocoder(collapsed = False, add_marker = True).addTo(my_map)
 
+circle_script = """
+function onSearchFound(e) {
+    var lat = e.result.center[0];  // Latitude of the found location
+    var lon = e.result.center[1];  // Longitude of the found location
+
+    // Create a circle with a 5-mile radius (about 8046.7 meters)
+    L.circle([lat, lon], {
+        color: 'red',
+        fillColor: '#007BFF',
+        fillOpacity: 0.2,
+        radius: 8046.7  // 5 miles in meters
+    }).addTo(map);
+}
+"""
+
+# Add the JavaScript to handle circle creation on search result
+my_map.get_root().html.add_child(Element(f"""
+<script>
+    {circle_script}
+</script>
+"""))
+
 home_button_html = """
 <div style="text-align: center; margin-top: 20px;">
     <button onclick="window.location.href='home.html'"
