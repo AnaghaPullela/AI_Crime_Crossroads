@@ -1,6 +1,8 @@
 import json, folium, random
 from folium.plugins import MarkerCluster
 
+
+
 with open("cleaned_crimes.json") as f:
     data = json.load(f)
     
@@ -8,8 +10,8 @@ locations = []
 
 for item in data:
     locations.append((item['LATITUDE'], item['LONGITUDE']))
-
-
+    
+    
 my_map = folium.Map(location=[41.8781, - 87.6298], zoom_start= 10)
 
 size = int(0.1 * len(locations))
