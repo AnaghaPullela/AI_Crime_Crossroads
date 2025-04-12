@@ -1,6 +1,9 @@
 import json
 
-def get_data():
-    with open('simplified-nq-train.jsonl', 'r') as file:
-        for line in file:
-            data = json.loads(line)
+with open("cleaned_crimes.json") as f:
+    data = json.load(f)
+    
+locations = []
+
+for item in data:
+    locations.append(item['LOCATION'])
