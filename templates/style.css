@@ -1,0 +1,16 @@
+body{
+    font-family: cursive;
+    text-align: center;
+    background: lightcoral;
+    
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    color: black;
+}

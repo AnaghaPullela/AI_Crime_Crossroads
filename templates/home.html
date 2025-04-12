@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset = "UTF - 8">
+        <link rel = "stylesheet" href = "style.css">
         <title>Crossroads</title>
 
     </head>
+    
+
     <script>
 
         function welcomeName(){
             let userName = document.getElementById("textareaId").value;
             let output = "";
             document.getElementById("buttonId").style.display = "none";
-            output += "Hello " + userName + " ! Welcome to this survey. Here, we do our best to help you deal with toxic relationships. Can you tell me if you are looking for relationship or friendship advice?";
+            output += "Hello " + userName + " ! Welcome to this survey. Here, we do our best to help you deal with toxic relationships. Can you tell me if you are looking for advice or a map of nearby locations where you can get help?";
             document.getElementById("divTag").innerHTML = output;
-            friendRelation();
+            problemButton();
         }
 
-        function friendRelation(){
-            let friendButton = "<input type = 'button' value = 'Friendship'>";
-            let relationButton = "<input type = 'button' value = 'Relationship'>";
-            document.getElementById("friendId").innerHTML = friendButton;
-            document.getElementById("relationId").innerHTML = relationButton;
+        function problemButton(){
+            let prob = "<input type = 'button' value = 'What is the Problem'>";
+            let map = "<input type = 'button' value = 'Map'>";
+            document.getElementById("problemId").innerHTML = prob;
+            document.getElementById("mapId").innerHTML = map;
         }
 
-        function clearPage(){
+        function clear(){
+            document.getElementById("problemId").style.display = "none";
+            document.getElementById("mapId").style.display = "none";
             document.getElementById("textareaId").style.display = "none";
-            document.getElementById("friendId").style.display = "none";
-            document.getElementById("divTag").style.display = "none";
         }
+
+        
     </script>
     
     <body>
@@ -41,9 +47,9 @@
         <div id = "divTag"></div>
 
         <br>
-        <div id = "friendId"></div>
+        <div id = "problemId"></div>
         <br>
-        <div id = "relationId"></div>
+        <div id = "mapId"></div>
 
         </div>
     </body>
