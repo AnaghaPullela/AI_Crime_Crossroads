@@ -3,9 +3,11 @@
     <title>Simple Map Example</title>
   </head>
   <body>
-    <h3>My Google Map</h3>
+    <h3>Chicago Locations</h3>
     <div id="map">
-      <h1>{{lat}} and {{lon}}</h1>
+      {% for location in locations %}
+      <h3>{{location[0]}}, {{location[1]}}</h3>
+      {% endfor %}
     </div>
     {#
     <script

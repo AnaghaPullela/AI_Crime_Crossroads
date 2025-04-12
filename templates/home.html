@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Map Example</title>
+    <title>Map</title>
     <style>
       #map {
         height: 400px;
@@ -10,28 +10,9 @@
     </style>
   </head>
   <body>
-    <h3>My Google Map</h3>
-    <div id="map"></div>
-
-    <!-- Load the Google Maps JavaScript API with your API key -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC01RBKhXNGyZ2vfFBkoTS1_vF_VDgwj3U&callback=initMap"
-      async
-      defer
-    ></script>
-
-    <script>
-      function initMap() {
-        const myLocation = { lat: 40.7128, lng: -74.0060 }; // New York City
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 12,
-          center: myLocation,
-        });
-        const marker = new google.maps.Marker({
-          position: myLocation,
-          map: map,
-        });
-      }
-    </script>
+    <h3>Let's take a look at crime rates around Chicago:</h3>
+    <form action="{{url_for('map')}}" method="POST">
+      <button type="submit">Go</button>
+    </form>
   </body>
 </html>

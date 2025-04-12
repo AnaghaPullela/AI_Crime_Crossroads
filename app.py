@@ -8,11 +8,10 @@ app = Flask(__name__)
 def home():
     return render_template("/home.html")
 
-@app.route("/map/<int:id>")
-def map(id):
-    latitude = locations[id][0]
-    longitude = locations[id][1]
-    return render_template("/map.html", lat=latitude, lon=longitude)
+@app.route("/map", methods=['POST'])
+def map():
+    loc_array = locations
+    return render_template("/map.html", locations=loc_array)
 
 if __name__ == "__main__":
     app.run(debug=True)
