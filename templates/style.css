@@ -1,0 +1,16 @@
+body{
+    font-family:cursive;
+    text-align: center;
+    background: lightpink;
+}
+
+
+h1{
+    font-size: 30px;
+    text-align: center;
+}
+
+p{
+    text-align:center;
+    color:black;
+}
