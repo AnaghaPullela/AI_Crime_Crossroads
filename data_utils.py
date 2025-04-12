@@ -1,7 +1,5 @@
 import json, folium, random
-from folium.plugins import MarkerCluster, Geocoder
-from folium import Element
-
+from folium.plugins import MarkerCluster
 
 
 with open("cleaned_crimes.json") as f:
@@ -13,7 +11,7 @@ for item in data:
     locations.append((item['LATITUDE'], item['LONGITUDE']))
     
     
-my_map = folium.Map(location=[41.8781, - 87.6298], zoom_start= 15)
+my_map = folium.Map(location=[41.8781, - 87.6298], zoom_start= 10)
 
 size = int(0.1 * len(locations))
 random_sample = random.sample(locations, size)
@@ -24,6 +22,7 @@ marker_cluster = MarkerCluster().add_to(my_map)
 for item in random_sample:
     folium.Marker(item, popup='Marker Label').add_to(marker_cluster)
 
+<<<<<<< HEAD
 Geocoder(collapsed = False, add_marker = True).add_to(my_map)
 
 circle_script = """
@@ -83,4 +82,6 @@ def get_home_button():
 home_btn = get_home_button()
 my_map.get_root().html.add_child(Element(home_btn))
 
+=======
+>>>>>>> parent of 1972bb4 (added search bar and the home button)
 my_map.save("templates/crime_map.html")
