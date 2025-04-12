@@ -1,9 +1,13 @@
 <html>
   <head>
     <title>Statistics</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles/style.css')}}"
+    />
   </head>
   <body>
-    <h3>Statistics</h3>
+    <h2>Statistics</h2>
     {% for crime in crimes %}
     <h5>{{crime}}</h5>
     {% endfor %}
