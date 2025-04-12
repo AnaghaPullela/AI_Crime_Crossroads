@@ -1,5 +1,5 @@
-import json
-import folium;
+import json, folium, random
+from folium.plugins import MarkerCluster
 
 with open("cleaned_crimes.json") as f:
     data = json.load(f)
@@ -12,7 +12,13 @@ for item in data:
 
 my_map = folium.Map(location=[41.8781, - 87.6298], zoom_start= 10)
 
-for item in locations:
-    folium.Marker(item, popup='Marker Label').add_to(my_map)
+size = int(0.1 * len(locations))
+random_sample = random.sample(locations, size)
+
+
+marker_cluster = MarkerCluster().add_to(my_map)
+
+for item in random_sample:
+    folium.Marker(item, popup='Marker Label').add_to(marker_cluster)
 
 my_map.save("crime_map.html")

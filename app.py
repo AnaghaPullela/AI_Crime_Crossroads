@@ -13,5 +13,9 @@ def map():
     loc_array = locations
     return render_template("/map.html", locations=loc_array)
 
+@app.route("/crime_map", methods=['POST'])
+def crime_map():
+    return render_template("/crime_map.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
