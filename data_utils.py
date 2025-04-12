@@ -4,7 +4,6 @@ from folium import Element
 
 
 
-
 with open("cleaned_crimes.json") as f:
     data = json.load(f)
     
@@ -25,8 +24,9 @@ marker_cluster = MarkerCluster().add_to(my_map)
 for item in random_sample:
     folium.Marker(item, popup='Marker Label').add_to(marker_cluster)
 
-Geocoder(collapsed = False, add_marker = True).addTo(my_map)
+Geocoder(collapsed = False, add_marker = True).add_to(my_map)
 
+<<<<<<< Updated upstream
 circle_script = """
 function onSearchFound(e) {
     var lat = e.result.center[0];  // Latitude of the found location
@@ -41,6 +41,22 @@ function onSearchFound(e) {
     }).addTo(map);
 }
 """
+=======
+
+def get_home_button():
+    from flask import url_for
+    from app import app
+    
+    with app.app_context():
+        home_url = url_for('home')
+        
+    home_button_html = """
+        <form action="{home_url}" method="POST">
+        <button type="submit">⬅ Back to Home</button>
+        </form>
+    """
+    return home_button_html
+>>>>>>> Stashed changes
 
 # Add the JavaScript to handle circle creation on search result
 my_map.get_root().html.add_child(Element(f"""
@@ -49,24 +65,22 @@ my_map.get_root().html.add_child(Element(f"""
 </script>
 """))
 
-home_button_html = """
-<div style="text-align: center; margin-top: 20px;">
-    <button onclick="window.location.href='home.html'"
-        style="
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        ">
-        ⬅ Back to Home
-    </button>
-</div>
-"""
+def get_home_button():
+    from flask import url_for
+    from app import app
+    
+    with app.app_context():
+        home_url = url_for('home')
+        
+    home_button_html = """
+        <form action="{home_url}" method="POST">
+        <button type="submit">⬅ Back to Home</button>
+        </form>
+    """
+    return home_button_html
 
 # Add the button to the bottom of the HTML (after the map)
-my_map.get_root().html.add_child(Element(home_button_html))
+home_btn = get_home_button()
+my_map.get_root().html.add_child(Element(home_btn))
 
 my_map.save("templates/crime_map.html")

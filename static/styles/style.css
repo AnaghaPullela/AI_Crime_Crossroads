@@ -15,17 +15,21 @@ p{
     color: black;
 }
 
+<<<<<<< Updated upstream
 h2{
     font-size: 30px;
     text-align: center;
     background: lightblue;
 }
 
+=======
+>>>>>>> Stashed changes
 button{
-    size: 20px;
-    text-align: center;
-    padding: 5;
-    background-color:rgb(255, 80, 203);
-    border-radius: 3;
-    border-color: blueviolet;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
 }
