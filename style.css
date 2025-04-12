@@ -1,0 +1,17 @@
+
+        body{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+            background: lightpink;
+        }
+
+        h1{
+            font-size: 50px;
+            text-align: center;
+        }
+
+        p{
+            text-align: center;
+            color: black;
+        }
+    
