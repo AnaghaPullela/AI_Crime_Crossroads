@@ -4,6 +4,30 @@
         <title>Crossroads</title>
 
     </head>
+    <script>
+
+        function welcomeName(){
+            let userName = document.getElementById("textareaId").value;
+            let output = "";
+            document.getElementById("buttonId").style.display = "none";
+            output += "Hello " + userName + " ! Welcome to this survey. Here, we do our best to help you deal with toxic relationships. Can you tell me if you are looking for relationship or friendship advice?";
+            document.getElementById("divTag").innerHTML = output;
+            friendRelation();
+        }
+
+        function friendRelation(){
+            let friendButton = "<input type = 'button' value = 'Friendship'>";
+            let relationButton = "<input type = 'button' value = 'Relationship'>";
+            document.getElementById("friendId").innerHTML = friendButton;
+            document.getElementById("relationId").innerHTML = relationButton;
+        }
+
+        function clearPage(){
+            document.getElementById("textareaId").style.display = "none";
+            document.getElementById("friendId").style.display = "none";
+            document.getElementById("divTag").style.display = "none";
+        }
+    </script>
     
     <body>
         <h1>Need Help on Breaking Up?</h1>
@@ -11,10 +35,14 @@
         <p>Hey! I heard that you need some help on breaking up from a toxic relationship. Whether it's a friendship or relationship, we are here for you. </p>
         <br>
         <p><textarea rows = 2 cols = 50 id = "textareaId" placeholder = "Type in your full name"></textarea></p>
-        <input type = "button" value = "Friendship" id = "friendshipButton" 
-        <div id = "friendId"></div>
 
-        <input type = "button" value = "Relationship" id = "relationshipButton" 
+        <input type = "button" value = "Enter" id = "buttonId" onClick = "welcomeName()">
+        
+        <div id = "divTag"></div>
+
+        <br>
+        <div id = "friendId"></div>
+        <br>
         <div id = "relationId"></div>
 
         </div>
