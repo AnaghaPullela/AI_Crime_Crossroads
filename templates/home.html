@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset = "UTF - 8">
-        <link rel = "stylesheet" href = "style.css">
-        <title>Crossroads</title>
+  <head>
+    <title>Simple Map Example</title>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Map</h3>
+    <div id="map"></div>
 
-    </head>
-    
+    <!-- Load the Google Maps JavaScript API with your API key -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC01RBKhXNGyZ2vfFBkoTS1_vF_VDgwj3U&callback=initMap"
+      async
+      defer
+    ></script>
 
     <script>
-
-        function welcomeName(){
-            let userName = document.getElementById("textareaId").value;
-            let output = "";
-            document.getElementById("buttonId").style.display = "none";
-            output += "Hello " + userName + " ! Welcome to this survey. Here, we do our best to help you deal with toxic relationships. Can you tell me if you are looking for advice or a map of nearby locations where you can get help?";
-            document.getElementById("divTag").innerHTML = output;
-            problemButton();
-        }
-
-        function problemButton(){
-            let prob = "<input type = 'button' value = 'What is the Problem'>";
-            let map = "<input type = 'button' value = 'Map'>";
-            document.getElementById("problemId").innerHTML = prob;
-            document.getElementById("mapId").innerHTML = map;
-        }
-
-        function clear(){
-            document.getElementById("problemId").style.display = "none";
-            document.getElementById("mapId").style.display = "none";
-            document.getElementById("textareaId").style.display = "none";
-        }
-
-        
+      function initMap() {
+        const myLocation = { lat: 40.7128, lng: -74.0060 }; // New York City
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: myLocation,
+        });
+        const marker = new google.maps.Marker({
+          position: myLocation,
+          map: map,
+        });
+      }
     </script>
-    
-    <body>
-        <h1>Need Help on Breaking Up?</h1>
-        <br>
-        <p>Hey! I heard that you need some help on breaking up from a toxic relationship. Whether it's a friendship or relationship, we are here for you. </p>
-        <br>
-        <p><textarea rows = 2 cols = 50 id = "textareaId" placeholder = "Type in your full name"></textarea></p>
-
-        <input type = "button" value = "Enter" id = "buttonId" onClick = "welcomeName()">
-        
-        <div id = "divTag"></div>
-
-        <br>
-        <div id = "problemId"></div>
-        <br>
-        <div id = "mapId"></div>
-
-        </div>
-    </body>
+  </body>
 </html>
