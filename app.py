@@ -4,11 +4,15 @@ import os
 
 app = Flask(__name__)
 
-print(locations[0])
-
 @app.route("/")
 def home():
     return render_template("/home.html")
+
+@app.route("/map/<int:id>")
+def map(id):
+    latitude = locations[id][0]
+    longitude = locations[id][1]
+    return render_template("/map.html", lat=latitude, lon=longitude)
 
 if __name__ == "__main__":
     app.run(debug=True)

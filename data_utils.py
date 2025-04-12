@@ -6,4 +6,4 @@ with open("cleaned_crimes.json") as f:
 locations = []
 
 for item in data:
-    locations.append(item['LOCATION'])
+    locations.append((item['LATITUDE'], item['LONGITUDE']))

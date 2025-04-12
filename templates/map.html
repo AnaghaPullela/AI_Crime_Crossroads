@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Simple Map Example</title>
+  </head>
+  <body>
+    <h3>My Google Map</h3>
+    <div id="map">
+      <h1>{{lat}} and {{lon}}</h1>
+    </div>
+    {#
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC01RBKhXNGyZ2vfFBkoTS1_vF_VDgwj3U&callback=initMap"
+      async
+      defer
+    ></script>
+
+    <script>
+      function initMap() {
+        const myLocation = { lat: { lat }, lng: { lon } }; // New York City
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: myLocation,
+        });
+        const marker = new google.maps.Marker({
+          position: myLocation,
+          map: map,
+        });
+      }
+    </script>
+    #}
+  </body>
+</html>
