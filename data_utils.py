@@ -26,7 +26,6 @@ for item in random_sample:
 
 Geocoder(collapsed = False, add_marker = True).add_to(my_map)
 
-<<<<<<< Updated upstream
 circle_script = """
 function onSearchFound(e) {
     var lat = e.result.center[0];  // Latitude of the found location
@@ -41,7 +40,7 @@ function onSearchFound(e) {
     }).addTo(map);
 }
 """
-=======
+
 
 def get_home_button():
     from flask import url_for
@@ -56,7 +55,7 @@ def get_home_button():
         </form>
     """
     return home_button_html
->>>>>>> Stashed changes
+
 
 # Add the JavaScript to handle circle creation on search result
 my_map.get_root().html.add_child(Element(f"""
@@ -64,6 +63,7 @@ my_map.get_root().html.add_child(Element(f"""
     {circle_script}
 </script>
 """))
+
 
 def get_home_button():
     from flask import url_for
